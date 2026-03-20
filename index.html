@@ -2,8 +2,17 @@
 <html>
     <head>
         <title>Sudoku Land</title>
-        <meta charset="UTF-8" content="width=device-width" initial-scale="1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg+xml" href="icon.png">
+        <script>
+            const user={
+                nickname: "Nickname",
+                email: "E-mail",
+                password: "Password",
+                birthdate: "BirthDate"
+            }
+        </script>
         <style>
             @font-face{
                 font-family: 'Gliker';
@@ -16,6 +25,7 @@
                 background-attachment:scroll;
                 background-color: #426f93;
                 font-family: Arial, sans-serif;
+                padding-top: 112px;
             }
             .logo{
                 width:60%;
@@ -45,12 +55,45 @@
                 margin-left: 0px;
                 font-family:gliker,cursive;
             }
+            .sidebar{
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 220px;
+                background: rgba(66,110,147,0.75);
+                backdrop-filter: blur(10px);
+                box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+                transition: left 0.3s ease;
+            }
+            .sidebar a{
+                display:block;
+                color:white;
+                padding:20px;
+                text-decoration:none;
+                font-family:gliker,cursive;
+            }
+            .menu{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:80px;
+            }
         </style>
     </head>
     <body>
-        <div style="margin-left:1300px; height:112px; display:block; position:sticky; top:0px;">
-            <nav></nav>
-            <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.html"><button style="padding:10px">Login</button></a>
+        <div id="sidebar" class="sidebar">
+            <div class="menu">
+                 <h1>☰</h1>
+            </div>
+            <div>
+                <a href="index.html">✏️ Homepage</a>
+                <a href="signuppage.html">✏️ Sign Up</a>
+                <a href="loginpage.html">✏️ Login</a>
+            </div>
+        </div>
+        <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;">
+            <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.html"> <button style="padding:10px">Login</button></a>
         </div>
         <img src="logo.png" alt="SudokuLand Logo" class="logo">
         <div>
@@ -67,8 +110,8 @@
     </body> 
     <footer>
         <ul style="font-family:gliker,cursive; font-weight: lighter; margin-left:50px;"> contact info:
-            <li>📧 <a href="mailto:zinebbahaj24434@gmail.com">zinebbahaj24434@gmail.com</a></li>
-            <li>📞 <a href="tel:+1234567890">+212 635-573323</a></li>
+            <li>📧 <a href="https://mail.google.com/mail/?view=cm&to=zinebbahaj24434@gmail.com" target="_blank">zinebbahaj24434@gmail.com</a></li>
+            <li>📞 <a href="https://wa.me/212635573323" target="_blank">+212 635-573323</a></li>
         </ul>
     </footer>
 </html>
