@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="icon.png">
         <style>
             @font-face{
                 font-family: 'Gliker';
@@ -16,7 +17,7 @@
                 background-color: #426f93;
                 font-family: Arial, sans-serif;
             }
-            button {
+            .header_button {
                 margin-top: 20px;
                 font-size: 16px;
                 background-color: #3486b9;
@@ -26,16 +27,22 @@
                 cursor: pointer;
                 font-family: gliker,cursive;
                 margin-left:1404px;
+                padding: 10px;
+            }
+            .signup_button {
+                margin-top: 20px;
+                font-size: 16px;
+                background-color: #3486b9;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-family: gliker,cursive;
+                padding: 10px;
             }
             .centerthings{
                 display: flex;
                 justify-content: center;
-            }
-            .infodiv{
-                border:none;
-                border-width:10%;
-                border-radius: 20px;
-                box-shadow:#426e93b6 6px 6px 12px;
             }
             input{
                 width: 50%;
@@ -50,13 +57,28 @@
                 color: black;
                 font-weight:lighter;
             }
+            .formdiv{
+                width:50%;
+                height: 50%; 
+                margin: 0 auto; 
+                text-align:center; 
+                background-color: #ffffff00; 
+                padding: 20px;
+                border:solid #193c66;
+                border-width:10%;
+                border-radius: 20px;
+                box-shadow:#426f93 6px 6px 12px;
+            }
+            input{
+                background-color: #426e936f;
+            }
         </style>
     </head>
     <body>
         <div style="height:130px; display:block; position:sticky; top:0px;">
-            <a href="loginpage.html"><button style="padding:10px">Login</button></a>
+            <a href="loginpage.html"><button class="header_button">Login</button></a>
         </div>
-        <div class="infodiv" class="centerthings" style="width:50%; height: 450px; margin: 0 auto; text-align:center; background-color: #426e936f; padding: 10px;">
+        <div class="formdiv">
             <h2 style="color:black; font-family:gliker,cursive;">Signup and start your journey!</h2>
             <form method="post" action="signuppaage.php">
                 <div>
@@ -79,7 +101,7 @@
                     <label for="confirm_password">Confirm Password:</label>
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" min="1" max="20">
                 </div>
-                <button type="submit">Signup</button>
+                <button type="submit" class="signup_button">Signup</button>
             </form>
         </div>
     </body>
