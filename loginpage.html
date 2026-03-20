@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @font-face{
+                font-family: 'Gliker';
+                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+            }
+            body {
+                background-image:url("backgroundlogo.png");
+                background-size:1530px 758px;
+                background-repeat:no-repeat;
+                background-attachment:scroll;
+                background-color: #426f93;
+                font-family: Arial, sans-serif;
+            }
+            button {
+                margin-top: 20px;
+                font-size: 16px;
+                background-color: #3486b9;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-family: gliker,cursive;
+            }
+            .centerthings{
+                display: flex;
+                justify-content: center;
+            }
+            .infodiv{
+                border: solid #193c66;
+                border-width:10%;
+                border-radius: 20px;
+                box-shadow:#426f93 6px 6px 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="margin-left:1404px; height:130px; display:block; position:sticky; top:0px;">
+            <nav></nav>
+            <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a>
+        </div>
+        <div class="infodiv" style="width:60%; height: 450px; margin-left: 20%; text-align:center">
+            <h1 style="color:black; font-family:gliker,cursive;">Login to your account</h1>
+            <form method="post" action="loginpage.php"> 
+                <label for="email"><b>E-mail:</b></label> 
+                <input type="email" name="email" id="email" placeholder="Enter your E-mail">
+            </form>
+        </div>
+    </body>
+    <footer></footer>
+</html>

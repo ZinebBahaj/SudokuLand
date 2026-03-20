@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @font-face{
+                font-family: 'Gliker';
+                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+            }
+            body {
+                background-image:url("backgroundlogo.png");
+                background-size:1530px 758px;
+                background-repeat:no-repeat;
+                background-attachment:scroll;
+                background-color: #426f93;
+                font-family: Arial, sans-serif;
+            }
+            button {
+                margin-top: 20px;
+                font-size: 16px;
+                background-color: #3486b9;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-family: gliker,cursive;
+                margin-left:1404px;
+            }
+            .centerthings{
+                display: flex;
+                justify-content: center;
+            }
+            .infodiv{
+                border:none;
+                border-width:10%;
+                border-radius: 20px;
+                box-shadow:#426e93b6 6px 6px 12px;
+            }
+            input{
+                width: 50%;
+                padding: 10px;
+                margin: 10px;
+                border: 2px ;
+                border-radius: 10px;
+                font-family: Arial, sans-serif;
+            }
+            label{
+                font-family: gliker,cursive;
+                color: black;
+                font-weight:lighter;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="height:130px; display:block; position:sticky; top:0px;">
+            <a href="loginpage.html"><button style="padding:10px">Login</button></a>
+        </div>
+        <div class="infodiv" class="centerthings" style="width:50%; height: 450px; margin: 0 auto; text-align:center; background-color: #426e936f; padding: 10px;">
+            <h2 style="color:black; font-family:gliker,cursive;">Signup and start your journey!</h2>
+            <form method="post" action="signuppaage.php">
+                <div>
+                    <label for="nickname">Nickname:</label>
+                    <input type="text" name="nickname" id="nickname" placeholder="Enter your Nickname">
+                </div>
+                <div>
+                    <label for="date">BirthDate:</label>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div>
+                    <label for="email">E-mail:</label> 
+                    <input type="email" name="email" id="email" placeholder="Enter your E-mail">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your Password" min="1" max="20">
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" min="1" max="20">
+                </div>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </body>
+    <footer></footer>
+</html>

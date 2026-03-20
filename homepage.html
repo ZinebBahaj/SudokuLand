@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sudoku Land</title>
+        <meta charset="UTF-8" content="width=device-width">
+        <link rel="icon" type="image/svg+xml" href="icon.png">
+        <style>
+            @font-face{
+                font-family: 'Gliker';
+                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+            }
+            body {
+                background-image:url("background.png");
+                background-size:1530px 758px;
+                background-repeat:no-repeat;
+                background-attachment:scroll;
+                background-color: #426f93;
+                font-family: Arial, sans-serif;
+            }
+            .logo{
+                width:60%;
+                height:auto;
+                display: block; 
+                margin: 0 auto;
+            }
+            button {
+                margin-top: 20px;
+                font-size: 16px;
+                background-color: #3486b9;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-family: gliker,cursive;
+            }
+            .centerthings{
+                display: flex;
+                justify-content: center;
+            }
+            footer{
+                margin-top: 115px;
+            }
+            p,h1{
+                text-align: center;
+                margin-left: 0px;
+                font-family:gliker,cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="margin-left:1300px; height:112px; display:block; position:sticky; top:0px;">
+            <nav></nav>
+            <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.html"><button style="padding:10px">Login</button></a>
+        </div>
+        <img src="logo.png" alt="SudokuLand Logo" class="logo">
+        <div>
+            <div id="guest">
+                <p>Hello! Sign up and start your Sudoku journey!</p>
+            </div>
+            <div id="user">
+                <p>Hello dear Nickname! Here is your progress bar. Want to continue?</p>
+            </div>
+        </div>
+        <div style="margin-top: 147px;" class="centerthings">
+            <button style="padding:30px 40px; margin-right: 10px;" type="submit">Play Sudoku</button> <button style="padding:30px 40px; margin-left: 10px;" type="submit">Sudoku Solver</button>
+        </div>
+    </body> 
+    <footer>
+        <ul style="font-family:gliker,cursive; font-weight: lighter; margin-left:50px;"> contact info:
+            <li>📧 <a href="mailto:info@sudokuland.com">info@sudokuland.com</a></li>
+            <li>📞 <a href="tel:+1234567890">+1 234 567 890</a></li>
+        </ul>
+    </footer>
+</html>
