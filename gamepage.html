@@ -18,34 +18,40 @@
                 font-family: Arial, sans-serif;
                 padding-top: 130px;
             }
-            .centerthings{
-                display: flex;
-                justify-content: center;
-            }
             table{
-                margin: 0 auto;
+                margin-top: 2.9%;
+                margin-left: 3%;
                 border: none;
                 border-collapse: collapse;
+                height: 90%;
+                width: 50%;
             }
             table td{
+                background-color: #F4F6F8;
                 border: none;
                 text-align: center;
                 font-size: 20px;
                 font-family: gliker,cursive;
-                height: 50px;
-                width: 50px;
-                box-shadow: #193c66 1px 1px 7px;
+                box-shadow: #0a1728 1px 1px 5px;
             }
             .tablediv{
-                background: rgba(66,110,147,0.75);
-                -webkit-backdrop-filter: blur(100px);
-                box-shadow: 3px 0 10px #253e53;
+                background: #ffffff;
+                border: #D9DEE5 1px solid;
+                box-shadow: rgba(0,0,0,0.18) 1px 1px 5px;
+                height:100%;
+                width:58%;
+                border-radius: 20px;
+                display: flex;
+                gap: 3%;
             }
             .tabledivcontainer{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
+                border-radius: 10px;
+                height: 500px;
+                width: 100%;
             }
             table td input{
                 width: 100%;
@@ -62,18 +68,54 @@
                 display: block; 
                 margin: 0 auto;
             }
-            .messagearea{
-                width: 200px;
-                height: 50px;
-                background-color: rgba(66,110,147,0.75);
-                -webkit-backdrop-filter: blur(10px);
-                box-shadow: 3px 0 10px #253e53;
-                color: rgb(0, 0, 0);
+            .msgareacontainer{
+                width: 40%;
+                height: 90%;
+                border-radius: 10px;
+                border: #C9D1DB 1px solid;
+                background-color: #F1F3F6;
+                box-shadow: #193c66 1px 1px 5px;
+                margin-top: 2.9%;
+            }
+            .msgarea{
+                width: 90%;
+                height: 60%;
+                border-radius: 5px;
+                border: none;
+                background-color: rgb(255, 255, 255);
+                box-shadow: #193c66 1px 1px 5px;
+                margin: 0 auto;
+            }
+            button{
+                width: 30%;
+                height: 10%;
+                border-radius: 5px;
+                border: none;
+                background-color: #D6E3F1;
+                color:#193c66;
+                box-shadow: #193c66 1px 1px 5px;
+                font-size: 20px;
                 font-family:cursive;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
+                display: block;
+                margin: 0 auto;
+                margin-top: 20px;
+                padding: 10px;
+            }
+            p{
+                text-align: center;
+                font-size: 20px;
+                font-family: gliker,cursive;
+                margin-top: 20px;
+                color: #193c66;
+            }
+            .msgarea input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                text-align: center;
+                font-size: 20px;
+                font-family:cursive;
+                background-color: transparent;
             }
         </style>
     </head>
@@ -184,10 +226,16 @@
                         <td><input type="text" maxlength="1"></td>
                     </tr>
                 </table>
-            </div>
-            <div class="messagearea">
-                <p>Message Area</p>
-            </div>    
+                <div class="msgareacontainer">
+                    <div>
+                        <p>Messages Area</p>
+                    </div>
+                    <div class="msgarea"><input type="text"></div>
+                    <div>
+                        <button>Submit</button>
+                    </div>
+                </div> 
+            </div> 
         </div>
     </body>
 </html>
