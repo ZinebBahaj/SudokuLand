@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="icon.png">
+        <style>
+            @font-face{
+                font-family: 'Gliker';
+                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+            }
+            body {
+                background-image:url("background.png");
+                background-size:1530px 758px;
+                background-repeat:no-repeat;
+                background-attachment:scroll;
+                background-color: #426f93;
+                font-family: Arial, sans-serif;
+                padding-top: 130px;
+            }
+            .centerthings{
+                display: flex;
+                justify-content: center;
+            }
+            table{
+                margin: 0 auto;
+                border: none;
+                border-collapse: collapse;
+            }
+            table td{
+                border: none;
+                text-align: center;
+                font-size: 20px;
+                font-family: gliker,cursive;
+                height: 50px;
+                width: 50px;
+                box-shadow: #193c66 1px 1px 7px;
+            }
+            .tablediv{
+                background: rgba(66,110,147,0.75);
+                -webkit-backdrop-filter: blur(100px);
+                box-shadow: 3px 0 10px #253e53;
+            }
+            .tabledivcontainer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            table td input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                text-align: center;
+                font-size: 20px;
+                font-family:cursive;
+                background-color: transparent;
+            }
+            .logo{
+                width:60%;
+                height:auto;
+                display: block; 
+                margin: 0 auto;
+            }
+            .messagearea{
+                width: 200px;
+                height: 50px;
+                background-color: rgba(66,110,147,0.75);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 3px 0 10px #253e53;
+                color: rgb(0, 0, 0);
+                font-family:cursive;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;">
+            <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
+        </div>
+        <div class="tabledivcontainer">
+            <div class="tablediv">
+                <table>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr style="border-bottom: solid #193c66 2px ;">
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr style="border-bottom: solid #193c66 2px ;">
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td style="border-right: solid #193c66 2px ;"><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                        <td><input type="text" maxlength="1"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="messagearea">
+                <p>Message Area</p>
+            </div>    
+        </div>
+    </body>
+</html>
