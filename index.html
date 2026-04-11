@@ -39,9 +39,6 @@
                 display: flex;
                 justify-content: center;
             }
-            footer{
-                margin-top: 115px;
-            }
             p,h1{
                 text-align: center;
                 margin-left: 0px;
@@ -122,8 +119,8 @@
                 </div>
             <div class="menulinks">
                 <a href="index.html">✏️ Homepage</a>
-                <a href="signuppage.html">✏️ Sign Up</a>
-                <a href="loginpage.html">✏️ Login</a>
+                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
+                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.html">✏️ Play</a>
                 <a href="solverspage.html">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
@@ -150,6 +147,13 @@
         <div style="margin-top: 50px;" class="centerthings">
             <a href="gamepage.html"><button style="padding:30px 40px; margin-right: 10px;" type="submit">Play Sudoku</button></a> <a href="solverpage.html"><button style="padding:30px 40px; margin-left: 10px;" type="submit">Sudoku Solver</button></a>
         </div>
+        <footer>
+            <ul style="font-family:consolas,cursive; font-weight: lighter; margin-left:220px; margin-top: 197px;"> contact info:
+                <li>📧 <a href="https://mail.google.com/mail/?view=cm&to=zinebbahaj24434@gmail.com" target="_blank">zinebbahaj24434@gmail.com</a></li>
+                <li>📞 <a href="https://wa.me/212635573323" target="_blank">+212 635-573323</a></li>
+            </ul>
+        <p class="centerthings" style="font-family:consolas; font-weight: lighter;">© 2026 SudokuLand — Developed by Zineb Bahaj</p>
+        </footer>
         <script>
             function showuser(username, progress){
                 document.getElementById("guest").style.display = "none";
@@ -159,21 +163,17 @@
                 document.querySelector(".progress").style.width = progress+"%";
                 document.getElementById("buttons").style.display = "none";
                 document.getElementById("menubars").innerText = "☰ "+username;
+                document.getElementById("gustsgn").style.display = "none";
+                document.getElementById("gustlgn").style.display = "none";
+                document.getElementsByTagName("footer")[0].style.marginTop = "200px";
             }
             function showguest(){
                 document.getElementById("guest").style.display = "block";
                 document.getElementById("user").style.display = "none";
                 document.getElementById("pfp").style.display = "none";
-                document.getElementsByTagName("footer")[0].style.marginTop = "1000px";
+                document.getElementsByTagName("footer")[0].style.marginTop = "277px";
             }
-            showuser("Zineb", 80);
+            showuser("Zineb", 40);
         </script>
     </body> 
-    <footer>
-        <ul style="font-family:consolas,cursive; font-weight: lighter; margin-left:220px; margin-top: 160px;"> contact info:
-            <li>📧 <a href="https://mail.google.com/mail/?view=cm&to=zinebbahaj24434@gmail.com" target="_blank">zinebbahaj24434@gmail.com</a></li>
-            <li>📞 <a href="https://wa.me/212635573323" target="_blank">+212 635-573323</a></li>
-        </ul>
-        <p class="centerthings" style="font-family:consolas; font-weight: lighter;">© 2026 SudokuLand — Developed by Zineb Bahaj</p>
-    </footer>
 </html>
