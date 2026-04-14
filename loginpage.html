@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg+xml" href="icon.png">
+        <title>SudokuLand - Login</title>
         <style>
             @font-face{
                 font-family: 'Gliker';
@@ -27,8 +28,10 @@
                 border-radius: 50px;
                 cursor: pointer;
                 font-family: gliker,cursive;
-                margin-left:1404px;
                 padding: 10px;
+                position: fixed;
+                top: 10px;
+                right: 20px;
             }
             .signup_button {
                 margin-top: 20px;
@@ -89,11 +92,75 @@
                 background-color: #426e936f;
                 box-shadow: #193c66 2px 2px 10px;
             }
+            .menubars{
+                cursor: pointer;
+                position: fixed;
+                top: 5px;
+                left: 20px;
+                font-size: 32px;
+                z-index: 1001;
+            }
+            .menubars:hover{
+                text-shadow: 2px 2px 10px #0c1117;
+            }
+            .menulinks a:hover{
+                background-color: #193c66a6;
+                color: #D6E3F1;
+                box-shadow: #193c66 2px 2px 10px;
+                backdrop-filter: blur(10px);
+            }
+            .sidebar{
+                position: fixed;
+                top: 0;
+                left: -220px;
+                height: 100%;
+                width: 220px;
+                background: rgba(66,110,147,0.75);
+                backdrop-filter: blur(10px);
+                box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+                padding-top: 80px;
+                transition: left 0.3s ease;
+                z-index: 1000;
+            }
+            .sidebar a{
+                display:block;
+                color:white;
+                padding:20px;
+                text-decoration:none;
+                font-family:gliker,cursive;
+            }
+            .userinfo{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:80px;
+            }
         </style>
     </head>
     <body>
-        <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;">
+        <div class="sidebarcontainer">
+            <div id="sidebar" class="sidebar">
+                <div class="userinfo">
+                   <h1 id="username"></h1>
+                </div>
+                <div class="userinfo" id="pfp">
+                    <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+                </div>
+            <div class="menulinks">
+                <a href="index.html">✏️ Homepage</a>
+                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
+                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.html">✏️ Play</a>
+                <a href="solverpage.html">✏️ Solver</a>
+                <a href="historypage.html">✏️ History</a>
+                <a href="techniquespage.html">✏️ Techniques</a>
+            </div>
+        </div>
+        <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
             <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
+        </div>
+        <div>
+            <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;">
             <a href="signuppage.html"><button class="header_button">Signup</button></a>
@@ -113,5 +180,18 @@
             </form>
             <p>Click the signup button above if you don't have an account.</p>
         </div>
+        <script>
+            function openclosemenu(){
+                if(document.getElementById("sidebar").style.left === "0px"){
+                    document.getElementById("sidebar").style.left = "-220px";
+                    document.getElementById("logo").style.marginLeft = "4.2%";
+                    document.getElementById("logo").style.transition = "margin-left 0.3s ease";
+                } else {
+                    document.getElementById("sidebar").style.left = "0px";
+                    document.getElementById("logo").style.marginLeft = "220px";
+                    document.getElementById("logo").style.transition = "margin-left 0.3s ease";
+                }
+            }
+        </script>
     </body>
 </html>

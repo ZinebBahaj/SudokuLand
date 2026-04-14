@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg+xml" href="icon.png">
+        <title>SudokuLand - Game</title>
         <style>
             @font-face{
                 font-family: 'Gliker';
@@ -104,6 +105,8 @@
                 margin: 0 auto;
                 margin-top: 20px;
                 padding: 10px;
+                font-family: gliker;
+                cursor: pointer;
             }
             button:hover{
                 background-color: #193c66;
@@ -126,11 +129,98 @@
                 font-family:cursive;
                 background-color: transparent;
             }
+            .menubars{
+                cursor: pointer;
+                position: fixed;
+                top: 5px;
+                left: 20px;
+                font-size: 32px;
+                z-index: 1001;
+            }
+            .menubars:hover{
+                text-shadow: 2px 2px 10px #0c1117;
+            }
+            .menulinks a:hover{
+                background-color: #193c66a6;
+                color: #D6E3F1;
+                box-shadow: #193c66 2px 2px 10px;
+                backdrop-filter: blur(10px);
+            }
+            .sidebar{
+                position: fixed;
+                top: 0;
+                left: -220px;
+                height: 100%;
+                width: 220px;
+                background: rgba(66,110,147,0.75);
+                backdrop-filter: blur(10px);
+                box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+                padding-top: 80px;
+                transition: left 0.3s ease;
+                z-index: 1000;
+            }
+            .sidebar a{
+                display:block;
+                color:white;
+                padding:20px;
+                text-decoration:none;
+                font-family:gliker,cursive;
+            }
+            .userinfo{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:80px;
+            }
+            p,h1{
+                text-align: center;
+                margin-left: 0px;
+                font-family:gliker,cursive;
+            }
+            .fakealert{
+                background-color: #ffffff;
+                border: 2px solid #193c66;
+                border-radius: 10px;
+                box-shadow: #193c66 2px 2px 10px;
+                padding: 20px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         </style>
     </head>
     <body>
-        <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;">
+        <div class="fakealert" id="fakealert">
+            <p id="alertmsg"></p>
+            <button id="alertbtn" onclick="document.getElementById('fakealert').style.display='none'">OK</button>
+            <a href="signuppage.html" id="sgnbtn"><button>Sign Up</button></a>
+            <a href="loginpage.html" id="lgnbtn"><button>Login</button></a>
+        </div>
+        <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
             <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
+        </div>
+        <div class="sidebarcontainer">
+            <div id="sidebar" class="sidebar">
+                <div class="userinfo" id="userinfo">
+                   <h1 id="username"></h1>
+                </div>
+                <div class="userinfo" id="pfp">
+                    <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+                </div>
+            <div class="menulinks">
+                <a href="index.html">✏️ Homepage</a>
+                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
+                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.html">✏️ Play</a>
+                <a href="solverpage.html">✏️ Solver</a>
+                <a href="historypage.html">✏️ History</a>
+                <a href="techniquespage.html">✏️ Techniques</a>
+                <a href="index.html" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+            </div>
+        </div>
+        <div>
+            <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div class="tabledivcontainer">
             <div class="tablediv">
@@ -241,13 +331,197 @@
                     </div>
                     <div class="msgarea"><p></p></div>
                     <div>
-                        <button>Submit</button>
+                        <button style="cursor: pointer;">Submit</button>
                     </div>
                 </div> 
             </div> 
         </div>
         <script>
-            
+            var chart = [[],[],[],[],[],[],[],[],[]];
+            var schart = [[],[],[],[],[],[],[],[],[]];
+            //easy
+            var chart1 = [[0,7,2,0,0,0,0,4,9],[8,3,1,6,0,0,5,0,0],[0,4,9,8,7,0,1,0,6],[0,0,6,2,0,1,4,0,0],[0,0,0,4,6,0,3,2,0],[0,0,0,0,3,0,0,0,1],[0,1,5,9,2,0,0,0,3],[7,6,0,0,5,8,2,0,0],[0,2,0,3,0,0,6,0,0]];
+            var chart2 = [[9,0,0,0,0,7,0,0,0],[0,5,1,0,9,4,7,2,0],[4,0,3,0,0,0,8,0,0],[6,8,0,0,2,3,4,7,0],[0,3,4,5,0,0,1,6,0],[2,1,0,0,0,6,5,0,0],[0,0,0,4,0,2,0,1,0],[0,4,2,0,5,0,6,0,0],[1,9,7,0,0,0,2,5,0]];
+            var chart3 = [[0,4,5,0,1,7,0,2,0],[0,2,0,3,0,0,1,0,0],[0,0,1,0,0,0,3,7,4],[0,0,9,0,0,3,5,8,0],[1,0,2,5,8,0,4,3,7],[0,0,8,7,0,6,9,0,0],[0,1,0,4,7,2,0,0,5],[0,0,7,0,0,0,2,0,0],[0,5,4,6,0,0,0,0,1]];
+            var chart4 = [[0,0,0,0,1,0,7,2,0],[0,0,3,2,7,8,0,9,0],[0,5,7,0,0,0,3,0,8],[0,0,0,9,6,0,0,7,1],[0,0,0,0,8,2,0,6,3],[1,9,6,0,0,0,0,4,2],[3,0,8,0,2,9,0,0,4],[0,0,9,0,5,1,0,0,0],[0,6,0,7,0,3,0,8,9]];
+            var chart5 = [[],[],[],[],[],[],[],[],[]];
+            var chart6 = [[],[],[],[],[],[],[],[],[]];
+            var chart7 = [[],[],[],[],[],[],[],[],[]];
+            var chart8 = [[],[],[],[],[],[],[],[],[]];
+            var chart9 = [[],[],[],[],[],[],[],[],[]];
+            var chart10 = [[],[],[],[],[],[],[],[],[]];
+            var chart11 = [[],[],[],[],[],[],[],[],[]];
+            var chart12 = [[],[],[],[],[],[],[],[],[]];
+            var chart13 = [[],[],[],[],[],[],[],[],[]];
+            var chart14 = [[],[],[],[],[],[],[],[],[]];
+            var chart15 = [[],[],[],[],[],[],[],[],[]];
+            //medium
+            var chart16 = [[],[],[],[],[],[],[],[],[]];
+            var chart17 = [[],[],[],[],[],[],[],[],[]];
+            var chart18 = [[],[],[],[],[],[],[],[],[]];
+            var chart19 = [[],[],[],[],[],[],[],[],[]];
+            var chart20 = [[],[],[],[],[],[],[],[],[]];
+            var chart21 = [[],[],[],[],[],[],[],[],[]];
+            var chart22 = [[],[],[],[],[],[],[],[],[]];
+            var chart23 = [[],[],[],[],[],[],[],[],[]];
+            var chart24 = [[],[],[],[],[],[],[],[],[]];
+            var chart25 = [[],[],[],[],[],[],[],[],[]];
+            var chart26 = [[],[],[],[],[],[],[],[],[]];
+            var chart27 = [[],[],[],[],[],[],[],[],[]];
+            var chart28 = [[],[],[],[],[],[],[],[],[]];
+            var chart29 = [[],[],[],[],[],[],[],[],[]];
+            var chart30 = [[],[],[],[],[],[],[],[],[]];
+            //hard
+            var chart31 = [[],[],[],[],[],[],[],[],[]];
+            var chart32 = [[],[],[],[],[],[],[],[],[]];
+            var chart33 = [[],[],[],[],[],[],[],[],[]];
+            var chart34 = [[],[],[],[],[],[],[],[],[]];
+            var chart35 = [[],[],[],[],[],[],[],[],[]];
+            var chart36 = [[],[],[],[],[],[],[],[],[]];
+            var chart37 = [[],[],[],[],[],[],[],[],[]];
+            var chart38 = [[],[],[],[],[],[],[],[],[]];
+            var chart39 = [[],[],[],[],[],[],[],[],[]];
+            var chart40 = [[],[],[],[],[],[],[],[],[]];
+            var chart41 = [[],[],[],[],[],[],[],[],[]];
+            var chart42 = [[],[],[],[],[],[],[],[],[]];
+            var chart43 = [[],[],[],[],[],[],[],[],[]];
+            var chart44 = [[],[],[],[],[],[],[],[],[]];
+            var chart45 = [[],[],[],[],[],[],[],[],[]];
+            //expert
+            var chart46 = [[],[],[],[],[],[],[],[],[]];
+            var chart47 = [[],[],[],[],[],[],[],[],[]];
+            var chart48 = [[],[],[],[],[],[],[],[],[]];
+            var chart49 = [[],[],[],[],[],[],[],[],[]];
+            var chart50 = [[],[],[],[],[],[],[],[],[]];
+            var chart51 = [[],[],[],[],[],[],[],[],[]];
+            var chart52 = [[],[],[],[],[],[],[],[],[]];
+            var chart53 = [[],[],[],[],[],[],[],[],[]];
+            var chart54 = [[],[],[],[],[],[],[],[],[]];
+            var chart55 = [[],[],[],[],[],[],[],[],[]];
+            var chart56 = [[],[],[],[],[],[],[],[],[]];
+            var chart57 = [[],[],[],[],[],[],[],[],[]];
+            var chart58 = [[],[],[],[],[],[],[],[],[]];
+            var chart59 = [[],[],[],[],[],[],[],[],[]];
+            var chart60 = [[],[],[],[],[],[],[],[],[]];
+            //solutions
+            //easy
+            var schart1 = [[],[],[],[],[],[],[],[],[]];
+            var schart2 = [[],[],[],[],[],[],[],[],[]];
+            var schart3 = [[],[],[],[],[],[],[],[],[]];
+            var schart4 = [[],[],[],[],[],[],[],[],[]];
+            var schart5 = [[],[],[],[],[],[],[],[],[]];
+            var schart6 = [[],[],[],[],[],[],[],[],[]];
+            var schart7 = [[],[],[],[],[],[],[],[],[]];
+            var schart8 = [[],[],[],[],[],[],[],[],[]];
+            var schart9 = [[],[],[],[],[],[],[],[],[]];
+            var schart10 = [[],[],[],[],[],[],[],[],[]];
+            var schart11 = [[],[],[],[],[],[],[],[],[]];
+            var schart12 = [[],[],[],[],[],[],[],[],[]];
+            var schart13 = [[],[],[],[],[],[],[],[],[]];
+            var schart14 = [[],[],[],[],[],[],[],[],[]];
+            var schart15 = [[],[],[],[],[],[],[],[],[]];
+            //medium
+            var schart16 = [[],[],[],[],[],[],[],[],[]];
+            var schart17 = [[],[],[],[],[],[],[],[],[]];
+            var schart18 = [[],[],[],[],[],[],[],[],[]];
+            var schart19 = [[],[],[],[],[],[],[],[],[]];
+            var schart20 = [[],[],[],[],[],[],[],[],[]];
+            var schart21 = [[],[],[],[],[],[],[],[],[]];
+            var schart22 = [[],[],[],[],[],[],[],[],[]];
+            var schart23 = [[],[],[],[],[],[],[],[],[]];
+            var schart24 = [[],[],[],[],[],[],[],[],[]];
+            var schart25 = [[],[],[],[],[],[],[],[],[]];
+            var schart26 = [[],[],[],[],[],[],[],[],[]];
+            var schart27 = [[],[],[],[],[],[],[],[],[]];
+            var schart28 = [[],[],[],[],[],[],[],[],[]];
+            var schart29 = [[],[],[],[],[],[],[],[],[]];
+            var schart30 = [[],[],[],[],[],[],[],[],[]];
+            //hard
+            var schart31 = [[],[],[],[],[],[],[],[],[]];
+            var schart32 = [[],[],[],[],[],[],[],[],[]];
+            var schart33 = [[],[],[],[],[],[],[],[],[]];
+            var schart34 = [[],[],[],[],[],[],[],[],[]];
+            var schart35 = [[],[],[],[],[],[],[],[],[]];
+            var schart36 = [[],[],[],[],[],[],[],[],[]];
+            var schart37 = [[],[],[],[],[],[],[],[],[]];
+            var schart38 = [[],[],[],[],[],[],[],[],[]];
+            var schart39 = [[],[],[],[],[],[],[],[],[]];
+            var schart40 = [[],[],[],[],[],[],[],[],[]];
+            var schart41 = [[],[],[],[],[],[],[],[],[]];
+            var schart42 = [[],[],[],[],[],[],[],[],[]];
+            var schart43 = [[],[],[],[],[],[],[],[],[]];
+            var schart44 = [[],[],[],[],[],[],[],[],[]];
+            var schart45 = [[],[],[],[],[],[],[],[],[]];
+            //expert
+            var schart46 = [[],[],[],[],[],[],[],[],[]];
+            var schart47 = [[],[],[],[],[],[],[],[],[]];
+            var schart48 = [[],[],[],[],[],[],[],[],[]];
+            var schart49 = [[],[],[],[],[],[],[],[],[]];
+            var schart50 = [[],[],[],[],[],[],[],[],[]];
+            var schart51 = [[],[],[],[],[],[],[],[],[]];
+            var schart52 = [[],[],[],[],[],[],[],[],[]];
+            var schart53 = [[],[],[],[],[],[],[],[],[]];
+            var schart54 = [[],[],[],[],[],[],[],[],[]];
+            var schart55 = [[],[],[],[],[],[],[],[],[]];
+            var schart56 = [[],[],[],[],[],[],[],[],[]];
+            var schart57 = [[],[],[],[],[],[],[],[],[]];
+            var schart58 = [[],[],[],[],[],[],[],[],[]];
+            var schart59 = [[],[],[],[],[],[],[],[],[]];
+            var schart60 = [[],[],[],[],[],[],[],[],[]];
+            function openclosemenu(){
+                if(document.getElementById("sidebar").style.left === "0px"){
+                    document.getElementById("sidebar").style.left = "-220px";
+                    document.getElementById("logo").style.marginLeft = "4.2%";
+                    document.getElementById("logo").style.transition = "margin-left 0.3s ease";
+                } else {
+                    document.getElementById("sidebar").style.left = "0px";
+                    document.getElementById("logo").style.marginLeft = "220px";
+                    document.getElementById("logo").style.transition = "margin-left 0.3s ease";
+                }
+            }
+            function fituserguestname(){
+                document.getElementById("username").style.fontSize = "32px";
+                while(document.getElementById("username").scrollWidth >= document.getElementById("userinfo").clientWidth){
+                    document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 1) + "px";
+                }
+                document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 11) + "px";
+            }
+            function showuser(username){
+                document.getElementById("username").innerText = username;
+                document.getElementById("gustsgn").style.display = "none";
+                document.getElementById("gustlgn").style.display = "none";
+                fituserguestname();
+            }
+            function showguest(){
+                document.getElementById("pfp").style.display = "none";
+                document.getElementById("username").innerText = "Guest";
+                fituserguestname();
+            }
+            function checklogin(){
+                // This function would typically check if the user is logged in by checking cookies or local storage
+                // For demonstration purposes, we'll just return true to simulate a logged-in user
+                return true;
+            }
+            function showalert(username,progress){
+                if(progress == 100){
+                    document.getElementById("alertmsg").innerText = "Congratulations ! You've completed all the charts and mastered Sudoku, you are now a true Sudoku master !"
+                    document.getElementById("alertbtn").innerText = "Thank you !";
+                    document.getElementById("sgnbtn").style.display = "none";
+                    document.getElementById("lgnbtn").style.display = "none";
+                }
+                else if(checklogin()){
+                    document.getElementById("alertmsg").innerText = "Hello dear "+username+" ! your progress is at "+progress+"%  , you have 60 charts to complete , good luck !"
+                    document.getElementById("alertbtn").innerText = "Let's go !";
+                    document.getElementById("sgnbtn").style.display = "none";
+                    document.getElementById("lgnbtn").style.display = "none";
+                }
+                else{
+                    document.getElementById("alertmsg").innerText = "Hello Guest ! Sign up or login to save your progress and access more features !"
+                    document.getElementById("alertbtn").innerText = "Close";
+                }
+            }
+            showalert("John", 40);
+            showuser("John");
         </script>
     </body>
 </html>

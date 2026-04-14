@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sudoku Land</title>
+        <title>SudokuLand</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg+xml" href="icon.png">
@@ -44,6 +44,16 @@
                 margin-left: 0px;
                 font-family:gliker,cursive;
             }
+            .menubars{
+                cursor: pointer;
+                position: fixed;
+                top: 5px;
+                left: 20px;
+                font-size: 32px;
+            }
+            .menubars:hover{
+                text-shadow: 2px 2px 10px #0c1117;
+            }
             .sidebar{
                 position: fixed;
                 top: 0;
@@ -53,10 +63,8 @@
                 background: rgba(66,110,147,0.75);
                 backdrop-filter: blur(10px);
                 box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+                padding-top: 80px;
                 transition: left 0.3s ease;
-            }
-            .sidebarcontainer:hover .sidebar{
-                left: 0;
             }
             .sidebar a{
                 display:block;
@@ -65,7 +73,7 @@
                 text-decoration:none;
                 font-family:gliker,cursive;
             }
-            .menu{
+            .userinfo{
                 display:flex;
                 justify-content:center;
                 align-items:center;
@@ -111,10 +119,10 @@
     <body>
         <div class="sidebarcontainer">
             <div id="sidebar" class="sidebar">
-                <div class="menu">
-                   <h1 id="menubars">☰</h1>
+                <div class="userinfo" id="userinfo">
+                   <h1 id="username"></h1>
                 </div>
-                <div class="menu" id="pfp">
+                <div class="userinfo" id="pfp">
                     <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
@@ -122,10 +130,14 @@
                 <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
                 <a href="loginpage.html" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.html">✏️ Play</a>
-                <a href="solverspage.html">✏️ Solver</a>
+                <a href="solverpage.html">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
+                <a href="index.html" onclick="showguest()" id="gustlgt">✏️ Logout</a>
             </div>
+        </div>
+        <div>
+            <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;" id="buttons">
             <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.html"> <button style="padding:10px">Login</button></a>
@@ -155,6 +167,13 @@
         <p class="centerthings" style="font-family:consolas; font-weight: lighter;">© 2026 SudokuLand — Developed by Zineb Bahaj</p>
         </footer>
         <script>
+            function fituserguestname(){
+                document.getElementById("username").style.fontSize = "32px";
+                while(document.getElementById("username").scrollWidth >= document.getElementById("userinfo").clientWidth){
+                    document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 1) + "px";
+                }
+                document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 11) + "px";
+            }
             function showuser(username, progress){
                 document.getElementById("guest").style.display = "none";
                 document.getElementById("user").style.display = "block";
@@ -162,18 +181,34 @@
                 document.getElementById("PBtext").innerHTML = progress+"%";
                 document.querySelector(".progress").style.width = progress+"%";
                 document.getElementById("buttons").style.display = "none";
-                document.getElementById("menubars").innerText = "☰ "+username;
+                document.getElementById("username").innerText = username;
                 document.getElementById("gustsgn").style.display = "none";
                 document.getElementById("gustlgn").style.display = "none";
                 document.getElementsByTagName("footer")[0].style.marginTop = "200px";
+                fituserguestname();
             }
             function showguest(){
                 document.getElementById("guest").style.display = "block";
                 document.getElementById("user").style.display = "none";
                 document.getElementById("pfp").style.display = "none";
                 document.getElementsByTagName("footer")[0].style.marginTop = "277px";
+                document.getElementById("username").innerText = "Guest";
+                fituserguestname();
             }
-            showuser("Zineb", 40);
+            function checklogin(){
+                // This function would typically check if the user is logged in by checking cookies or local storage
+                // For demonstration purposes, we'll just return true to simulate a logged-in user
+                return true;
+            }
+            function openclosemenu(){
+                if(document.getElementById("sidebar").style.left === "0px"){
+                    document.getElementById("sidebar").style.left = "-220px";
+                } else {
+                    document.getElementById("sidebar").style.left = "0px";
+                }
+            }
+            showuser("John", 40); // Show user view by default
+            
         </script>
     </body> 
 </html>
