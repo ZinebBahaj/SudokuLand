@@ -190,14 +190,14 @@
                     <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
-                <a href="index.html">✏️ Homepage</a>
-                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
-                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
-                <a href="gamepage.html">✏️ Play</a>
-                <a href="solverpage.html">✏️ Solver</a>
+                <a href="index.php">✏️ Homepage</a>
+                <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
+                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.php">✏️ Play</a>
+                <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
-                <a href="index.html" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+                <a href="index.php" onclick="showguest()" id="gustlgt">✏️ Logout</a>
             </div>
         </div>
         <div>

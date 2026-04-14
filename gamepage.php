@@ -1,3 +1,4 @@
+<?php //php  ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -194,8 +195,8 @@
         <div class="fakealert" id="fakealert">
             <p id="alertmsg"></p>
             <button id="alertbtn" onclick="document.getElementById('fakealert').style.display='none'">OK</button>
-            <a href="signuppage.html" id="sgnbtn"><button>Sign Up</button></a>
-            <a href="loginpage.html" id="lgnbtn"><button>Login</button></a>
+            <a href="signuppage.php" id="sgnbtn"><button>Sign Up</button></a>
+            <a href="lioginpage.php" id="lgnbtn"><button>Login</button></a>
         </div>
         <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
             <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
@@ -209,14 +210,14 @@
                     <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
-                <a href="index.html">✏️ Homepage</a>
-                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
-                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
-                <a href="gamepage.html">✏️ Play</a>
-                <a href="solverpage.html">✏️ Solver</a>
+                <a href="index.php">✏️ Homepage</a>
+                <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
+                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.php">✏️ Play</a>
+                <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
-                <a href="index.html" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+                <a href="index.php" onclick="showguest()" id="gustlgt">✏️ Logout</a>
             </div>
         </div>
         <div>
@@ -337,137 +338,6 @@
             </div> 
         </div>
         <script>
-            var chart = [[],[],[],[],[],[],[],[],[]];
-            var schart = [[],[],[],[],[],[],[],[],[]];
-            //easy
-            var chart1 = [[0,7,2,0,0,0,0,4,9],[8,3,1,6,0,0,5,0,0],[0,4,9,8,7,0,1,0,6],[0,0,6,2,0,1,4,0,0],[0,0,0,4,6,0,3,2,0],[0,0,0,0,3,0,0,0,1],[0,1,5,9,2,0,0,0,3],[7,6,0,0,5,8,2,0,0],[0,2,0,3,0,0,6,0,0]];
-            var chart2 = [[9,0,0,0,0,7,0,0,0],[0,5,1,0,9,4,7,2,0],[4,0,3,0,0,0,8,0,0],[6,8,0,0,2,3,4,7,0],[0,3,4,5,0,0,1,6,0],[2,1,0,0,0,6,5,0,0],[0,0,0,4,0,2,0,1,0],[0,4,2,0,5,0,6,0,0],[1,9,7,0,0,0,2,5,0]];
-            var chart3 = [[0,4,5,0,1,7,0,2,0],[0,2,0,3,0,0,1,0,0],[0,0,1,0,0,0,3,7,4],[0,0,9,0,0,3,5,8,0],[1,0,2,5,8,0,4,3,7],[0,0,8,7,0,6,9,0,0],[0,1,0,4,7,2,0,0,5],[0,0,7,0,0,0,2,0,0],[0,5,4,6,0,0,0,0,1]];
-            var chart4 = [[0,0,0,0,1,0,7,2,0],[0,0,3,2,7,8,0,9,0],[0,5,7,0,0,0,3,0,8],[0,0,0,9,6,0,0,7,1],[0,0,0,0,8,2,0,6,3],[1,9,6,0,0,0,0,4,2],[3,0,8,0,2,9,0,0,4],[0,0,9,0,5,1,0,0,0],[0,6,0,7,0,3,0,8,9]];
-            var chart5 = [[],[],[],[],[],[],[],[],[]];
-            var chart6 = [[],[],[],[],[],[],[],[],[]];
-            var chart7 = [[],[],[],[],[],[],[],[],[]];
-            var chart8 = [[],[],[],[],[],[],[],[],[]];
-            var chart9 = [[],[],[],[],[],[],[],[],[]];
-            var chart10 = [[],[],[],[],[],[],[],[],[]];
-            var chart11 = [[],[],[],[],[],[],[],[],[]];
-            var chart12 = [[],[],[],[],[],[],[],[],[]];
-            var chart13 = [[],[],[],[],[],[],[],[],[]];
-            var chart14 = [[],[],[],[],[],[],[],[],[]];
-            var chart15 = [[],[],[],[],[],[],[],[],[]];
-            //medium
-            var chart16 = [[],[],[],[],[],[],[],[],[]];
-            var chart17 = [[],[],[],[],[],[],[],[],[]];
-            var chart18 = [[],[],[],[],[],[],[],[],[]];
-            var chart19 = [[],[],[],[],[],[],[],[],[]];
-            var chart20 = [[],[],[],[],[],[],[],[],[]];
-            var chart21 = [[],[],[],[],[],[],[],[],[]];
-            var chart22 = [[],[],[],[],[],[],[],[],[]];
-            var chart23 = [[],[],[],[],[],[],[],[],[]];
-            var chart24 = [[],[],[],[],[],[],[],[],[]];
-            var chart25 = [[],[],[],[],[],[],[],[],[]];
-            var chart26 = [[],[],[],[],[],[],[],[],[]];
-            var chart27 = [[],[],[],[],[],[],[],[],[]];
-            var chart28 = [[],[],[],[],[],[],[],[],[]];
-            var chart29 = [[],[],[],[],[],[],[],[],[]];
-            var chart30 = [[],[],[],[],[],[],[],[],[]];
-            //hard
-            var chart31 = [[],[],[],[],[],[],[],[],[]];
-            var chart32 = [[],[],[],[],[],[],[],[],[]];
-            var chart33 = [[],[],[],[],[],[],[],[],[]];
-            var chart34 = [[],[],[],[],[],[],[],[],[]];
-            var chart35 = [[],[],[],[],[],[],[],[],[]];
-            var chart36 = [[],[],[],[],[],[],[],[],[]];
-            var chart37 = [[],[],[],[],[],[],[],[],[]];
-            var chart38 = [[],[],[],[],[],[],[],[],[]];
-            var chart39 = [[],[],[],[],[],[],[],[],[]];
-            var chart40 = [[],[],[],[],[],[],[],[],[]];
-            var chart41 = [[],[],[],[],[],[],[],[],[]];
-            var chart42 = [[],[],[],[],[],[],[],[],[]];
-            var chart43 = [[],[],[],[],[],[],[],[],[]];
-            var chart44 = [[],[],[],[],[],[],[],[],[]];
-            var chart45 = [[],[],[],[],[],[],[],[],[]];
-            //expert
-            var chart46 = [[],[],[],[],[],[],[],[],[]];
-            var chart47 = [[],[],[],[],[],[],[],[],[]];
-            var chart48 = [[],[],[],[],[],[],[],[],[]];
-            var chart49 = [[],[],[],[],[],[],[],[],[]];
-            var chart50 = [[],[],[],[],[],[],[],[],[]];
-            var chart51 = [[],[],[],[],[],[],[],[],[]];
-            var chart52 = [[],[],[],[],[],[],[],[],[]];
-            var chart53 = [[],[],[],[],[],[],[],[],[]];
-            var chart54 = [[],[],[],[],[],[],[],[],[]];
-            var chart55 = [[],[],[],[],[],[],[],[],[]];
-            var chart56 = [[],[],[],[],[],[],[],[],[]];
-            var chart57 = [[],[],[],[],[],[],[],[],[]];
-            var chart58 = [[],[],[],[],[],[],[],[],[]];
-            var chart59 = [[],[],[],[],[],[],[],[],[]];
-            var chart60 = [[],[],[],[],[],[],[],[],[]];
-            //solutions
-            //easy
-            var schart1 = [[],[],[],[],[],[],[],[],[]];
-            var schart2 = [[],[],[],[],[],[],[],[],[]];
-            var schart3 = [[],[],[],[],[],[],[],[],[]];
-            var schart4 = [[],[],[],[],[],[],[],[],[]];
-            var schart5 = [[],[],[],[],[],[],[],[],[]];
-            var schart6 = [[],[],[],[],[],[],[],[],[]];
-            var schart7 = [[],[],[],[],[],[],[],[],[]];
-            var schart8 = [[],[],[],[],[],[],[],[],[]];
-            var schart9 = [[],[],[],[],[],[],[],[],[]];
-            var schart10 = [[],[],[],[],[],[],[],[],[]];
-            var schart11 = [[],[],[],[],[],[],[],[],[]];
-            var schart12 = [[],[],[],[],[],[],[],[],[]];
-            var schart13 = [[],[],[],[],[],[],[],[],[]];
-            var schart14 = [[],[],[],[],[],[],[],[],[]];
-            var schart15 = [[],[],[],[],[],[],[],[],[]];
-            //medium
-            var schart16 = [[],[],[],[],[],[],[],[],[]];
-            var schart17 = [[],[],[],[],[],[],[],[],[]];
-            var schart18 = [[],[],[],[],[],[],[],[],[]];
-            var schart19 = [[],[],[],[],[],[],[],[],[]];
-            var schart20 = [[],[],[],[],[],[],[],[],[]];
-            var schart21 = [[],[],[],[],[],[],[],[],[]];
-            var schart22 = [[],[],[],[],[],[],[],[],[]];
-            var schart23 = [[],[],[],[],[],[],[],[],[]];
-            var schart24 = [[],[],[],[],[],[],[],[],[]];
-            var schart25 = [[],[],[],[],[],[],[],[],[]];
-            var schart26 = [[],[],[],[],[],[],[],[],[]];
-            var schart27 = [[],[],[],[],[],[],[],[],[]];
-            var schart28 = [[],[],[],[],[],[],[],[],[]];
-            var schart29 = [[],[],[],[],[],[],[],[],[]];
-            var schart30 = [[],[],[],[],[],[],[],[],[]];
-            //hard
-            var schart31 = [[],[],[],[],[],[],[],[],[]];
-            var schart32 = [[],[],[],[],[],[],[],[],[]];
-            var schart33 = [[],[],[],[],[],[],[],[],[]];
-            var schart34 = [[],[],[],[],[],[],[],[],[]];
-            var schart35 = [[],[],[],[],[],[],[],[],[]];
-            var schart36 = [[],[],[],[],[],[],[],[],[]];
-            var schart37 = [[],[],[],[],[],[],[],[],[]];
-            var schart38 = [[],[],[],[],[],[],[],[],[]];
-            var schart39 = [[],[],[],[],[],[],[],[],[]];
-            var schart40 = [[],[],[],[],[],[],[],[],[]];
-            var schart41 = [[],[],[],[],[],[],[],[],[]];
-            var schart42 = [[],[],[],[],[],[],[],[],[]];
-            var schart43 = [[],[],[],[],[],[],[],[],[]];
-            var schart44 = [[],[],[],[],[],[],[],[],[]];
-            var schart45 = [[],[],[],[],[],[],[],[],[]];
-            //expert
-            var schart46 = [[],[],[],[],[],[],[],[],[]];
-            var schart47 = [[],[],[],[],[],[],[],[],[]];
-            var schart48 = [[],[],[],[],[],[],[],[],[]];
-            var schart49 = [[],[],[],[],[],[],[],[],[]];
-            var schart50 = [[],[],[],[],[],[],[],[],[]];
-            var schart51 = [[],[],[],[],[],[],[],[],[]];
-            var schart52 = [[],[],[],[],[],[],[],[],[]];
-            var schart53 = [[],[],[],[],[],[],[],[],[]];
-            var schart54 = [[],[],[],[],[],[],[],[],[]];
-            var schart55 = [[],[],[],[],[],[],[],[],[]];
-            var schart56 = [[],[],[],[],[],[],[],[],[]];
-            var schart57 = [[],[],[],[],[],[],[],[],[]];
-            var schart58 = [[],[],[],[],[],[],[],[],[]];
-            var schart59 = [[],[],[],[],[],[],[],[],[]];
-            var schart60 = [[],[],[],[],[],[],[],[],[]];
             function openclosemenu(){
                 if(document.getElementById("sidebar").style.left === "0px"){
                     document.getElementById("sidebar").style.left = "-220px";
@@ -500,7 +370,7 @@
             function checklogin(){
                 // This function would typically check if the user is logged in by checking cookies or local storage
                 // For demonstration purposes, we'll just return true to simulate a logged-in user
-                return true;
+                return false;
             }
             function showalert(username,progress){
                 if(progress == 100){
@@ -520,7 +390,7 @@
                     document.getElementById("alertbtn").innerText = "Close";
                 }
             }
-            showalert("John", 40);
+            showalert("john",20);
             showuser("John");
         </script>
     </body>

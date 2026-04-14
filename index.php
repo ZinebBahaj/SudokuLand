@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -126,21 +128,21 @@
                     <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
-                <a href="index.html">✏️ Homepage</a>
-                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
-                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
-                <a href="gamepage.html">✏️ Play</a>
-                <a href="solverpage.html">✏️ Solver</a>
+                <a href="index.php">✏️ Homepage</a>
+                <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
+                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.php">✏️ Play</a>
+                <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
-                <a href="index.html" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+                <a href="index.php" onclick="showguest()" id="gustlgt">✏️ Logout</a>
             </div>
         </div>
         <div>
             <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;" id="buttons">
-            <a href="signuppage.html"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.html"> <button style="padding:10px">Login</button></a>
+            <a href="signuppage.php"><button style="padding:10px">Sign Up</button></a> <a href="lioginpage.php"> <button style="padding:10px">Login</button></a>
         </div>
         <img src="logo1.png" alt="SudokuLand Logo" class="logo">
         <div>
@@ -157,7 +159,7 @@
             </div>
         </div>
         <div style="margin-top: 50px;" class="centerthings">
-            <a href="gamepage.html"><button style="padding:30px 40px; margin-right: 10px;" type="submit">Play Sudoku</button></a> <a href="solverpage.html"><button style="padding:30px 40px; margin-left: 10px;" type="submit">Sudoku Solver</button></a>
+            <a href="gamepage.php"><button style="padding:30px 40px; margin-right: 10px;" type="submit">Play Sudoku</button></a> <a href="solverpage.php"><button style="padding:30px 40px; margin-left: 10px;" type="submit">Sudoku Solver</button></a>
         </div>
         <footer>
             <ul style="font-family:consolas,cursive; font-weight: lighter; margin-left:220px; margin-top: 197px;"> contact info:

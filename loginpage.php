@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg+xml" href="icon.png">
-        <title>SudokuLand - SignUp</title>
+        <title>SudokuLand - Login</title>
         <style>
             @font-face{
                 font-family: 'Gliker';
@@ -55,7 +55,6 @@
                 border: 2px ;
                 border-radius: 10px;
                 font-family: Arial, sans-serif;
-                background-color: #426e936f;
             }
             label{
                 font-family: gliker,cursive;
@@ -73,6 +72,16 @@
                 border-width:10%;
                 border-radius: 20px;
                 box-shadow:#426f93 6px 6px 12px;
+            }
+            input{
+                background-color: #426e936f;
+            }
+            p{
+                text-align: center;
+                margin-left: 0px;
+                font-family:gliker,cursive;
+                font-weight: lighter;
+                font-size: 13px;
             }
             button:hover{
                 background-color: #193c66;
@@ -129,52 +138,47 @@
         </style>
     </head>
     <body>
+        <div class="sidebarcontainer">
+            <div id="sidebar" class="sidebar">
+                <div class="userinfo">
+                   <h1 id="username"></h1>
+                </div>
+                <div class="userinfo" id="pfp">
+                    <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+                </div>
+            <div class="menulinks">
+                <a href="index.php">✏️ Homepage</a>
+                <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
+                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="gamepage.php">✏️ Play</a>
+                <a href="solverpage.php">✏️ Solver</a>
+                <a href="historypage.html">✏️ History</a>
+                <a href="techniquespage.html">✏️ Techniques</a>
+            </div>
+        </div>
         <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
             <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
         </div>
         <div>
             <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
-        <div class="loginbutton">
-            <a href="loginpage.html"><button class="header_button">Login</button></a>
-        </div>
-        <div class="sidebarcontainer">
-            <div id="sidebar" class="sidebar">
-            <div class="menulinks">
-                <a href="index.html">✏️ Homepage</a>
-                <a href="signuppage.html" id="gustsgn">✏️ Sign Up</a>
-                <a href="loginpage.html" id="gustlgn">✏️ Login</a>
-                <a href="gamepage.html">✏️ Play</a>
-                <a href="solverpage.html">✏️ Solver</a>
-                <a href="historypage.html">✏️ History</a>
-                <a href="techniquespage.html">✏️ Techniques</a>
-            </div>
+        <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;">
+            <a href="signuppage.php"><button class="header_button">Signup</button></a>
         </div>
         <div class="formdiv">
-            <h2 style="color:black; font-family:gliker,cursive;">Signup and start your journey!</h2>
-            <form method="post" action="signuppaage.php">
+            <h2 style="color:black; font-family:gliker,cursive;">Keep it up!</h2>
+            <form method="post" action="loginpage.php">
                 <div>
                     <label for="nickname">Nickname:</label>
                     <input type="text" name="nickname" id="nickname" placeholder="Enter your Nickname">
                 </div>
                 <div>
-                    <label for="date">BirthDate:</label>
-                    <input type="date" name="date" id="date">
-                </div>
-                <div>
-                    <label for="email">E-mail:</label> 
-                    <input type="email" name="email" id="email" placeholder="XXXXXX@gmail.com">
-                </div>
-                <div>
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" placeholder="Enter your Password" min="1" max="20">
                 </div>
-                <div>
-                    <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" min="1" max="20">
-                </div>
-                <button type="submit" class="signup_button">SignUp</button>
+                <button type="submit" class="signup_button">Login</button>
             </form>
+            <p>Click the signup button above if you don't have an account.</p>
         </div>
         <script>
             function openclosemenu(){
