@@ -1,4 +1,14 @@
 <?php
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="sudolandb";
+try{
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e){
+    echo "Connection failed: " . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -130,7 +140,7 @@
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
                 <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
-                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="loginpage.php" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.php">✏️ Play</a>
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
@@ -142,7 +152,7 @@
             <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;" id="buttons">
-            <a href="signuppage.php"><button style="padding:10px">Sign Up</button></a> <a href="lioginpage.php"> <button style="padding:10px">Login</button></a>
+            <a href="signuppage.php"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.php"> <button style="padding:10px">Login</button></a>
         </div>
         <img src="logo1.png" alt="SudokuLand Logo" class="logo">
         <div>
@@ -200,7 +210,7 @@
             function checklogin(){
                 // This function would typically check if the user is logged in by checking cookies or local storage
                 // For demonstration purposes, we'll just return true to simulate a logged-in user
-                return true;
+                return false;
             }
             function openclosemenu(){
                 if(document.getElementById("sidebar").style.left === "0px"){
@@ -209,7 +219,14 @@
                     document.getElementById("sidebar").style.left = "0px";
                 }
             }
-            showuser("John", 40); // Show user view by default
+            if(checklogin()){
+                // Simulate fetching user data
+                const username = "Zineb";
+                const progress = 40;
+                showuser(username, progress);
+            } else {
+                showguest();
+            }
             
         </script>
     </body> 

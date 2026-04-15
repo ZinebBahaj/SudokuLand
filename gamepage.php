@@ -196,7 +196,7 @@
             <p id="alertmsg"></p>
             <button id="alertbtn" onclick="document.getElementById('fakealert').style.display='none'">OK</button>
             <a href="signuppage.php" id="sgnbtn"><button>Sign Up</button></a>
-            <a href="lioginpage.php" id="lgnbtn"><button>Login</button></a>
+            <a href="loginpage.php" id="lgnbtn"><button>Login</button></a>
         </div>
         <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
             <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
@@ -212,7 +212,7 @@
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
                 <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
-                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="loginpage.php" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.php">✏️ Play</a>
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>

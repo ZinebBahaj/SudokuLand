@@ -192,7 +192,7 @@
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
                 <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
-                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="loginpage.php" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.php">✏️ Play</a>
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>

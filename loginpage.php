@@ -149,7 +149,7 @@
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
                 <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
-                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="loginpage.php" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.php">✏️ Play</a>
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
@@ -169,8 +169,8 @@
             <h2 style="color:black; font-family:gliker,cursive;">Keep it up!</h2>
             <form method="post" action="loginpage.php">
                 <div>
-                    <label for="nickname">Nickname:</label>
-                    <input type="text" name="nickname" id="nickname" placeholder="Enter your Nickname">
+                    <label for="nickname">E-mail:</label>
+                    <input type="text" name="nickname" id="nickname" placeholder="XXXXXX@gmail.com">
                 </div>
                 <div>
                     <label for="password">Password:</label>

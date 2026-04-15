@@ -136,14 +136,14 @@
             <h1 class="menubars" onclick="openclosemenu()">☰</h1>
         </div>
         <div class="loginbutton">
-            <a href="lioginpage.php"><button class="header_button">Login</button></a>
+            <a href="loginpage.php"><button class="header_button">Login</button></a>
         </div>
         <div class="sidebarcontainer">
             <div id="sidebar" class="sidebar">
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
                 <a href="signuppage.php" id="gustsgn">✏️ Sign Up</a>
-                <a href="lioginpage.php" id="gustlgn">✏️ Login</a>
+                <a href="loginpage.php" id="gustlgn">✏️ Login</a>
                 <a href="gamepage.php">✏️ Play</a>
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
