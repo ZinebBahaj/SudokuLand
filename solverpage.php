@@ -1,17 +1,20 @@
+<?php
+include('cnnx.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="icon.png">
+        <link rel="icon" type="image/svg+xml" href="assets/icon.png">
         <title>SudokuLand - Solver</title>
         <style>
             @font-face{
                 font-family: 'Gliker';
-                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+                src: url(assets/gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
             }
             body {
-                background-image:url("background.png");
+                background-image:url("assets/background.png");
                 background-size:1530px 758px;
                 background-repeat:no-repeat;
                 background-attachment:scroll;
@@ -179,7 +182,7 @@
     </head>
     <body>
         <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
-            <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
+            <img src="assets/logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
         </div>
         <div class="sidebarcontainer">
             <div id="sidebar" class="sidebar">

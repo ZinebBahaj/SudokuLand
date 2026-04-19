@@ -1,17 +1,47 @@
+<?php
+include('cnnx.php');
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $noaccmsg="";
+    $wrongpasswordmsg="";
+    $fillingmsg="";
+    $storedpassword="";
+    if(empty($email)||empty($password)){
+        $fillingmsg="Please make sure you filled every field !";
+    }
+    else{
+        $sql=$conn->prepare("SELECT ppassword FROM users WHERE email=?");
+        $sql->execute([$email]);
+        $storedpassword=$sql->fetchColumn();
+        if($storedpassword===false){
+            $noaccmsg="No such account , click the signup button above to create one.";
+        }
+        elseif($storedpassword===$password){
+            echo "<script>
+                window.location.href='index.php';
+            </script>";
+        }
+        else{
+            $wrongpasswordmsg="Invalid password";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="icon.png">
+        <link rel="icon" type="image/svg+xml" href="assets/icon.png">
         <title>SudokuLand - Login</title>
         <style>
             @font-face{
                 font-family: 'Gliker';
-                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+                src: url(assets/gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
             }
             body {
-                background-image:url("background.png");
+                background-image:url("assets/background.png");
                 background-size:1530px 758px;
                 background-repeat:no-repeat;
                 background-attachment:scroll;
@@ -144,7 +174,7 @@
                    <h1 id="username"></h1>
                 </div>
                 <div class="userinfo" id="pfp">
-                    <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+                    <img src="assets/Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
@@ -157,7 +187,7 @@
             </div>
         </div>
         <div style="display:flex; position:fixed; top:10px; margin-left:4.2%;" id="logo">
-            <img src="logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
+            <img src="assets/logo1.png" alt="SudokuLand Logo" style="height:70px; width:auto;">
         </div>
         <div>
             <h1 class="menubars" onclick="openclosemenu()">☰</h1>
@@ -167,18 +197,18 @@
         </div>
         <div class="formdiv">
             <h2 style="color:black; font-family:gliker,cursive;">Keep it up!</h2>
-            <form method="post" action="loginpage.php">
+            <form method="post" action="">
                 <div>
-                    <label for="nickname">E-mail:</label>
-                    <input type="text" name="nickname" id="nickname" placeholder="XXXXXX@gmail.com">
+                    <label for="email">E-mail:</label>
+                    <input type="text" name="email" id="email" placeholder="XXXXXX@XXXXX.XXX">
                 </div>
                 <div>
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" placeholder="Enter your Password" min="1" max="20">
                 </div>
                 <button type="submit" class="signup_button">Login</button>
+                <p style="color: red;"><?php if(!empty($fillingmsg)){echo "$fillingmsg";} if(!empty($noaccmsg)){echo "$noaccmsg";} if(!empty($wrongpasswordmsg)){echo "$wrongpasswordmsg";} ?></p>
             </form>
-            <p>Click the signup button above if you don't have an account.</p>
         </div>
         <script>
             function openclosemenu(){

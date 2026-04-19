@@ -1,14 +1,5 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="sudolandb";
-try{
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
-}
+include('cnnx.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,14 +7,14 @@ try{
         <title>SudokuLand</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="icon.png">
+        <link rel="icon" type="image/svg+xml" href="assets/icon.png">
         <style>
             @font-face{
                 font-family: 'Gliker';
-                src: url(gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+                src: url(assets/gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
             }
             body {
-                background-image:url("background.png");
+                background-image:url("assets/background.png");
                 background-size:1530px 758px;
                 background-repeat:no-repeat;
                 background-attachment:scroll;
@@ -135,7 +126,7 @@ try{
                    <h1 id="username"></h1>
                 </div>
                 <div class="userinfo" id="pfp">
-                    <img src="Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+                    <img src="assets/Pfp.jpeg"style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
                 </div>
             <div class="menulinks">
                 <a href="index.php">✏️ Homepage</a>
@@ -154,7 +145,7 @@ try{
         <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;" id="buttons">
             <a href="signuppage.php"><button style="padding:10px">Sign Up</button></a> <a href="loginpage.php"> <button style="padding:10px">Login</button></a>
         </div>
-        <img src="logo1.png" alt="SudokuLand Logo" class="logo">
+        <img src="assets/logo1.png" alt="SudokuLand Logo" class="logo">
         <div>
             <div id="guest">
                 <p>Hello! Sign up and start your Sudoku journey!</p>
@@ -220,14 +211,12 @@ try{
                 }
             }
             if(checklogin()){
-                // Simulate fetching user data
                 const username = "Zineb";
                 const progress = 40;
                 showuser(username, progress);
             } else {
                 showguest();
             }
-            
         </script>
     </body> 
 </html>
