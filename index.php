@@ -1,5 +1,23 @@
 <?php
+session_start();
 include('cnnx.php');
+if(isset($_SESSION['email'])){
+    $sql=$conn->prepare("SELECT nickname,birthdate,pfp,current_chart,progress,mistakes FROM users LEFT JOIN filling_process ON users.id = filling_process.users_id LEFT JOIN charts ON filling_process.charts_id = charts.id WHERE email = ?");
+    $sql->execute(array($_SESSION["email"]));
+    $row=$sql->fetchAll();
+    echo "<script>
+                function checklogin(){
+                    return true;
+                }
+          </script>";
+}
+else{
+    echo "<script>
+                function checklogin(){
+                    return false;
+                }
+          </script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -136,7 +154,7 @@ include('cnnx.php');
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
-                <a href="index.php" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+                <a href="logout.php" id="gustlgt">✏️ Logout</a>
             </div>
         </div>
         <div>
@@ -177,7 +195,7 @@ include('cnnx.php');
                 }
                 document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 11) + "px";
             }
-            function showuser(username, progress){
+            function showuser(username,progress){
                 document.getElementById("guest").style.display = "none";
                 document.getElementById("user").style.display = "block";
                 document.getElementById("hometext").innerHTML ="Welcome back dear "+username+" ! Your current progress is at "+progress+"% , keep it up !";
@@ -196,12 +214,8 @@ include('cnnx.php');
                 document.getElementById("pfp").style.display = "none";
                 document.getElementsByTagName("footer")[0].style.marginTop = "277px";
                 document.getElementById("username").innerText = "Guest";
+                document.getElementById("gustlgt").style.display="none";
                 fituserguestname();
-            }
-            function checklogin(){
-                // This function would typically check if the user is logged in by checking cookies or local storage
-                // For demonstration purposes, we'll just return true to simulate a logged-in user
-                return false;
             }
             function openclosemenu(){
                 if(document.getElementById("sidebar").style.left === "0px"){
@@ -210,13 +224,13 @@ include('cnnx.php');
                     document.getElementById("sidebar").style.left = "0px";
                 }
             }
-            if(checklogin()){
-                const username = "Zineb";
-                const progress = 40;
+            <?php if(isset($_SESSION['email'])){ ?>
+                const username = "<?php echo $row[0]['nickname']; ?>";
+                const progress = "<?php echo $row[0]['progress']; ?>";
                 showuser(username, progress);
-            } else {
+            <?php } else { ?>
                 showguest();
-            }
+            <?php } ?>
         </script>
     </body> 
 </html>

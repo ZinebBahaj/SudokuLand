@@ -1,12 +1,180 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="assets/icon.png">
-    <title>SudokuLand - techniques</title>
+    <title>SudokuLand - Techniques</title>
+    <style>
+        @font-face{
+            font-family: 'Gliker';
+            src: url(assets/gliker-regular-expanded/gliker-regular-expanded.ttf) format('truetype');
+        }
+        body {
+            background-image:url("assets/background.png");
+            background-size:1530px 758px;
+            background-repeat:no-repeat;
+            background-attachment: fixed;
+            background-color: #426f93;
+            font-family: Arial, sans-serif;
+            padding-top: 112px;
+        }
+        .logo{
+            width:60%;
+            height:auto;
+            display: block; 
+            margin: 0 auto;
+        }
+        button {
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #3486b9;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: gliker,cursive;
+        }
+        .centerthings{
+            display: flex;
+            justify-content: center;
+        }
+        p,h1{
+            text-align: center;
+            margin-left: 0px;
+            font-family:gliker,cursive;
+        }
+        .menubars{
+            cursor: pointer;
+            position: fixed;
+            top: 5px;
+            left: 20px;
+            font-size: 32px;
+        }
+        .menubars:hover{
+            text-shadow: 2px 2px 10px #0c1117;
+        }
+        .sidebar{
+            position: fixed;
+            top: 0;
+            left: -220px;
+            height: 100%;
+            width: 220px;
+            background: rgba(66,110,147,0.75);
+            backdrop-filter: blur(10px);
+            box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+            padding-top: 80px;
+            transition: left 0.3s ease;
+        }
+        .sidebar a{
+            display:block;
+            color:white;
+            padding:20px;
+            text-decoration:none;
+            font-family:gliker,cursive;
+        }
+        .userinfo{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:80px;
+        }
+        button:hover{
+            background-color: #193c66;
+            color: #D6E3F1;
+            box-shadow: #193c66 2px 2px 10px;
+        }
+        .menulinks a:hover{
+            background-color: #193c66a6;
+            color: #D6E3F1;
+            box-shadow: #193c66 2px 2px 10px;
+            backdrop-filter: blur(10px);
+        }
+        footer {
+            font-family: consolas,cursive; 
+            font-weight: lighter; 
+            margin-left:220px; 
+            margin-top: 197px;
+        }
+        footer p {
+            text-align: center;
+            font-family: consolas;
+            font-weight: lighter;
+        }
+    </style>
 </head>
 <body>
-    
-</body>
+    <div class="sidebarcontainer">
+        <div id="sidebar" class="sidebar">
+            <div class="userinfo" id="userinfo">
+               <h1 id="username">Guest</h1>
+            </div>
+            <div class="userinfo" id="pfp" style="display: none;">
+                <img src="assets/Pfp.jpeg" style="height:70px; width:auto; border-radius:50%; border: 2px solid #193c66;">
+            </div>
+            <div class="menulinks">
+                <a href="index.php">✏️ Homepage</a>
+                <a href="signuppage.php">✏️ Sign Up</a>
+                <a href="loginpage.php">✏️ Login</a>
+                <a href="gamepage.php">✏️ Play</a>
+                <a href="solverpage.php">✏️ Solver</a>
+                <a href="historypage.html">✏️ History</a>
+                <a href="techniquespage.html">✏️ Techniques</a>
+                <a href="logout.php">✏️ Logout</a>
+            </div>
+        </div>
+        <div>
+            <h1 class="menubars" onclick="openclosemenu()">☰</h1>
+        </div>
+        <div style="display:flex; position:fixed; right:20px; top:10px; gap:10px;" id="buttons">
+            <a href="signuppage.php"><button style="padding:10px">Sign Up</button></a> 
+            <a href="loginpage.php"> <button style="padding:10px">Login</button></a>
+        </div>
+        <img src="assets/logo1.png" alt="SudokuLand Logo" class="logo">
+
+        <div>
+
+            <p><strong>Complete Sudoku Techniques Guide for Beginners!</strong></p>
+            <p>Sudoku solving uses elimination and patterns. No guessing - pure logic. Scan rows/columns/3x3 boxes repeatedly.</p>
+            <p><strong>1. Naked Singles (Easiest):</strong> Cell with only one possible number gets that number. Fill immediately!</p>
+            <p>Example: Cell candidates {3} → place 3.</p>
+            <p><strong>2. Hidden Singles:</strong> Number appears in only one cell of a row/column/box → place it (even if cell has other candidates).</p>
+            <p>Example: Row needs 5, only one cell can take it → place 5.</p>
+            <p><strong>3. Naked Pairs/Triples:</strong> 2/3 cells in unit with identical 2/3 candidates → remove those from ALL other cells in unit.</p>
+            <p>Example: Two cells {2,5} → remove 2,5 from rest of row.</p>
+            <p><strong>4. Locked Candidates:</strong> Number restricted to one row/column in box → remove from that row/column outside box (Box-Line).</p>
+            <p>Reverse also works (Line-Box).</p>
+            <p><strong>Beginner Strategy:</strong> Always Naked Singles first. Repeat scan. Stuck? Check technique order. SudokuLand beginner grids + solver help learn!</p>
+            <p>Advanced: X-Wing, Swordfish. Master basics first.</p>
+            <p>Play now - every puzzle teaches!</p>
+
+        </div>
+
+        <footer>
+            <ul> contact info:
+                <li>📧 <a href="https://mail.google.com/mail/?view=cm&to=zinebbahaj24434@gmail.com" target="_blank">zinebbahaj24434@gmail.com</a></li>
+                <li>📞 <a href="https://wa.me/212635573323" target="_blank">+212 635-573323</a></li>
+            </ul>
+        <p class="centerthings">© 2026 SudokuLand — Developed by Zineb Bahaj</p>
+        </footer>
+        <script>
+            function openclosemenu(){
+                if(document.getElementById("sidebar").style.left === "0px"){
+                    document.getElementById("sidebar").style.left = "-220px";
+                } else {
+                    document.getElementById("sidebar").style.left = "0px";
+                }
+            }
+            function fituserguestname(){
+                document.getElementById("username").style.fontSize = "32px";
+                while(document.getElementById("username").scrollWidth >= document.getElementById("userinfo").clientWidth){
+                    document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 1) + "px";
+                }
+                document.getElementById("username").style.fontSize = (parseInt(document.getElementById("username").style.fontSize) - 11) + "px";
+            }
+            fituserguestname();
+        </script>
+    </body> 
 </html>
+

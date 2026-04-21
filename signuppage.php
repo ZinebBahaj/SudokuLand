@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         }
     }
     if(empty($fillingmsg)&&empty($emailmsg)&&empty($passwdmsg)&&empty($maxcharmsg)){
-        $sql= "INSERT INTO users (nickname,birthdate,email,password,pfp) VALUES ('$nickname','$birthdate','$email','$password','assets/pfp.jpeg')";
+        $sql= "INSERT INTO users (nickname,birthdate,email,ppassword,pfp) VALUES ('$nickname','$birthdate','$email','$password','assets/pfp.jpeg')";
         $conn->exec($sql);
         $successmsg="Signed up successfully !";
     }

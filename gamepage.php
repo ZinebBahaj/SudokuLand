@@ -1,5 +1,23 @@
 <?php
+session_start();
 include('cnnx.php');
+if(isset($_SESSION['email'])){
+    $sql=$conn->prepare("SELECT nickname,birthdate,pfp,current_chart,progress,mistakes FROM users LEFT JOIN filling_process ON users.id = filling_process.users_id LEFT JOIN charts ON filling_process.charts_id = charts.id WHERE email = ?");
+    $sql->execute(array($_SESSION["email"]));
+    $row=$sql->fetchAll();
+    echo "<script>
+                function checklogin(){
+                    return true;
+                }
+          </script>";
+}
+else{
+    echo "<script>
+                function checklogin(){
+                    return false;
+                }
+          </script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -219,7 +237,7 @@ include('cnnx.php');
                 <a href="solverpage.php">✏️ Solver</a>
                 <a href="historypage.html">✏️ History</a>
                 <a href="techniquespage.html">✏️ Techniques</a>
-                <a href="index.php" onclick="showguest()" id="gustlgt">✏️ Logout</a>
+                <a href="logout.php" id="gustlgt">✏️ Logout</a>
             </div>
         </div>
         <div>
@@ -367,12 +385,8 @@ include('cnnx.php');
             function showguest(){
                 document.getElementById("pfp").style.display = "none";
                 document.getElementById("username").innerText = "Guest";
+                document.getElementById("gustlgt").style.display="none";
                 fituserguestname();
-            }
-            function checklogin(){
-                // This function would typically check if the user is logged in by checking cookies or local storage
-                // For demonstration purposes, we'll just return true to simulate a logged-in user
-                return false;
             }
             function showalert(username,progress){
                 if(progress == 100){
@@ -392,8 +406,14 @@ include('cnnx.php');
                     document.getElementById("alertbtn").innerText = "Close";
                 }
             }
-            showalert("john",20);
-            showuser("John");
+            <?php if(isset($_SESSION['email'])){ ?>
+                const username = "<?php echo $row[0]['nickname']; ?>";
+                const progress = "<?php echo $row[0]['progress']; ?>";
+                showuser(username, progress);
+            <?php } else { ?>
+                showguest();
+            <?php } ?>
+            showalert(username,progress);
         </script>
     </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('cnnx.php');
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $email=$_POST['email'];
@@ -18,6 +19,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             $noaccmsg="No such account , click the signup button above to create one.";
         }
         elseif($storedpassword===$password){
+            $_SESSION['email']=$email;
             echo "<script>
                 window.location.href='index.php';
             </script>";
